@@ -17,13 +17,13 @@ st.title("Genetic Algorithm Optimization")
 # Input parameters
 st.header("Configure Genetic Algorithm Parameters")
 
-mutation_depth = st.slider("Mutation Depth", min_value=1, max_value=10, value=3)
-iterations = st.slider("Iterations", min_value=10, max_value=1000, value=479)
+mutation_depth = st.slider("Mutation Depth", min_value=1, max_value=100, value=3)
+iterations = st.slider("Iterations", min_value=10, max_value=500, value=10)
 mutation_probability = st.slider("Mutation Probability", min_value=0.0, max_value=1.0, value=0.1)
 generation_size = st.slider("Generation Size", min_value=1, max_value=100, value=20)
 
 # User input for other parameters
-num_facilities = st.number_input("Number of Facilities", min_value=1, max_value=1000, value=134)
+num_facilities = st.number_input("Number of Facilities", min_value=1, max_value=1000, value=479)
 p_value = st.number_input("P Value (Cluster Count)", min_value=1, max_value=1000, value=134)
 
 # Upload or generate a cost matrix
