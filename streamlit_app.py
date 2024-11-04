@@ -344,7 +344,9 @@ class GeneticAlgorithm:
         minutes, seconds = divmod(rem, 60)
 
 
-        report_name = "_".join(map(str, self.input_list)) + ".csv"
+        #report_name = "_".join(map(str, self.input_list)) + ".csv"
+        report_name = "report" + ".csv"
+
         report_df = pd.DataFrame(report)
         report_df.to_csv(report_name)
 
@@ -417,6 +419,21 @@ if st.button("Run Optimization"):
     minutes, seconds = divmod(rem, 60)
 
     st.write(f"Time: {hours}h {minutes}m {int(seconds)}s ")
+
+    report = pd.read_csv("report" + ".csv")
+    fig, ax = plt.subplots()
+    ax.plot(report.index, report.top, label='Fitness Value')
+
+    ax.set_xlabel("Iteration")
+    ax.set_ylabel("Fitness Value")
+    ax.set_title("Scatter Plot of Fitness Values Over Iterations")
+    ax.legend()
+    ax.set_xlim(report.index.min(), report.index.max())  # Set x-axis limits to min and max iteration
+    ax.set_ylim(report.top.min(), report.top.max())  # Set y-axis limits to min and max fitness values
+    ax.grid(True)
+
+    # Display the plot in Streamlit
+    st.pyplot(fig)
 else:
     st.write("Click 'Run Optimization' to start the Genetic Algorithm.")
 
