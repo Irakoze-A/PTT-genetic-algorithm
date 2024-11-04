@@ -8,6 +8,9 @@ import copy
 import numpy as np
 import time
 
+import matplotlib.pyplot as plt
+
+
 # Assuming the GeneticAlgorithm class is already implemented
 # from your_module import GeneticAlgorithm
 
