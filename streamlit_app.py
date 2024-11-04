@@ -407,7 +407,13 @@ if st.button("Run Optimization"):
     
     # Optimize and display results
     result = genetic.optimize()
-    st.write("Optimization Result:", result)
+    st.write("Optimization Result:", genetic.top_chromosome)
+    st.write("Result Fitness :", genetic.top_chromosome.fitness)
+
+    hours, rem = divmod(genetic.time, 3600)
+    minutes, seconds = divmod(rem, 60)
+
+    st.write(f"Time: {hours}h {minutes}m {int(seconds)}s ")
 else:
     st.write("Click 'Run Optimization' to start the Genetic Algorithm.")
 
